@@ -1,5 +1,7 @@
 package characters;
 
+import items.Item;
+
 import java.util.ArrayList;
 
 public abstract class Character {
