@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public abstract class Character {
     String name;
     ArrayList<Item> items;
-
+    Item item;
 
     public Character(String name) {
         this.name = name;
@@ -20,6 +20,10 @@ public abstract class Character {
 
     public int countItems(){
         return this.items.size();
+    }
+
+    public void addItem(Item item) {
+        items.add(item);
     }
 
 

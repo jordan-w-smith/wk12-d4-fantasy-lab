@@ -29,5 +29,11 @@ public class PeasantTest {
         assertEquals(0, peasant.countItems());
     }
 
+    @Test
+    public void canAddItemToItems() {
+        peasant.addItem(sword);
+        assertEquals(1, peasant.countItems());
+    }
+
 
 }
