@@ -60,4 +60,11 @@ public class PeasantTest {
         assertEquals(47, peasant.getHealth());
     }
 
+    @Test
+    public void givesCommentaryWhenAttacked() {
+        assertEquals("AAAAHH. Pat has lost 3 health points. Down to 47 health points.", peasant.receivesAttack(3));
+    }
+
+
+
 }

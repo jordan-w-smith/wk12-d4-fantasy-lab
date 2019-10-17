@@ -40,12 +40,15 @@ public abstract class Character {
         return this.name + " attacks with " + this.weapon.getClass().getSimpleName() + " and deals " + getWeaponDamage() + " points of damage";
     }
 
-//public int receiveAttack(Weapon weapon) {
-//        return this.health - weapon.getDamage();
-//}
 
-    public int receivesAttack(int damage) {
-        return this.health -= damage;
+
+//    public int receivesAttack(int damage) {
+//        return this.health -= damage;
+//    }
+
+        public String receivesAttack(int damage) {
+        this.health -= damage;
+        return "AAAAHH. " + this.name + " has lost " + damage + " health points. Down to " + this.health + " health points.";
     }
 
 
