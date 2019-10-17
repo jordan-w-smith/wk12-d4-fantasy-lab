@@ -11,11 +11,13 @@ public class PeasantTest {
 
     Peasant peasant;
     Sword sword;
+    Sword sword2;
 
     @Before
     public void before() {
-        peasant = new Peasant("Pat");
+        peasant = new Peasant("Pat", sword, 50);
         sword = new Sword(3);
+        sword2 = new Sword(3);
 
     }
 
@@ -24,15 +26,15 @@ public class PeasantTest {
         assertEquals("Pat", peasant.getName());
     }
 
-    @Test
-    public void inventoryStartsAt0() {
-        assertEquals(0, peasant.countItems());
-    }
+//    @Test
+//    public void inventoryStartsAt0() {
+//        assertEquals(0, peasant.countItems());
+//    }
 
     @Test
-    public void canAddItemToItems() {
-        peasant.addItem(sword);
-        assertEquals(1, peasant.countItems());
+    public void canChangeItem() {
+        peasant.changeItem(sword2);
+        assertEquals(sword2, peasant.getItem());
     }
 
 
