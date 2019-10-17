@@ -3,16 +3,16 @@ package characters;
 import behaviours.IAttack;
 import items.Item;
 
-import java.util.ArrayList;
+import items.Weapon;
 
-public abstract class Character implements IAttack {
+public abstract class Character {
     String name;
-    Item item;
+    Weapon weapon;
     int health;
 
-    public Character(String name, Item item, int health) {
+    public Character(String name, Weapon weapon, int health) {
         this.name = name;
-        this.item = item;
+        this.weapon = weapon;
         this.health = health;
     }
 
@@ -20,23 +20,33 @@ public abstract class Character implements IAttack {
         return this.name;
     }
 
-//    public int countItems(){
-//        return this.items.size();
-//    }
-
-    public void changeItem(Item newItem) {
-        this.item = newItem;
+    public int getHealth() {
+        return this.health;
     }
 
-    public Item getItem() {
-        return this.item;
+    public void changeWeapon(Weapon newWeapon) {
+        this.weapon = newWeapon;
+    }
+
+    public Item getWeapon() {
+        return this.weapon;
+    }
+
+    public int getWeaponDamage() {
+        return this.weapon.getDamage();
     }
 
     public String attack() {
-        return "Player attacks";
+        return this.name + " attacks with " + this.weapon.getClass().getSimpleName() + " and deals " + getWeaponDamage() + " points of damage";
     }
 
+//public int receiveAttack(Weapon weapon) {
+//        return this.health - weapon.getDamage();
+//}
 
+    public int receivesAttack(int damage) {
+        return this.health -= damage;
+    }
 
 
 }

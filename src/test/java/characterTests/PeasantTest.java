@@ -2,6 +2,7 @@ package characterTests;
 
 import characters.Peasant;
 import items.Sword;
+import items.Weapon;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,12 +13,13 @@ public class PeasantTest {
     Peasant peasant;
     Sword sword;
     Sword sword2;
+    Weapon weapon;
 
     @Before
     public void before() {
-        peasant = new Peasant("Pat", sword, 50);
         sword = new Sword(3);
         sword2 = new Sword(3);
+        peasant = new Peasant("Pat", sword2, 50);
 
     }
 
@@ -32,10 +34,30 @@ public class PeasantTest {
 //    }
 
     @Test
-    public void canChangeItem() {
-        peasant.changeItem(sword2);
-        assertEquals(sword2, peasant.getItem());
+    public void hasHealth() {
+        assertEquals(50, peasant.getHealth());
     }
 
+    @Test
+    public void hasWeapon() {
+        assertEquals(sword2, peasant.getWeapon());
+    }
+
+    @Test
+    public void canChangeWeapon() {
+        peasant.changeWeapon(sword2);
+        assertEquals(sword2, peasant.getWeapon());
+    }
+
+    @Test
+    public void canAttack() {
+        assertEquals("Pat attacks with Sword and deals 3 points of damage" , peasant.attack());
+    }
+
+    @Test
+    public void healthGoesDownWhenAttacked() {
+        peasant.receivesAttack(3);
+        assertEquals(47, peasant.getHealth());
+    }
 
 }

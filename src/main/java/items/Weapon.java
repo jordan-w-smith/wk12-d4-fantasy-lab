@@ -3,7 +3,7 @@ package items;
 
 public abstract class Weapon extends Item {
 
-    private int damage;
+    public int damage;
 
     public Weapon(int damage) {
         this.damage = damage ;

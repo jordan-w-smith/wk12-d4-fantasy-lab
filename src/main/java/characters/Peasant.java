@@ -1,11 +1,13 @@
 package characters;
 
 import items.Item;
+import items.Sword;
+import items.Weapon;
 
 public class Peasant extends Character {
 
-    public Peasant(String name, Item item, int health) {
-        super(name, item, health);
+    public Peasant(String name, Weapon weapon, int health) {
+        super(name, weapon, health);
     }
 
 }
